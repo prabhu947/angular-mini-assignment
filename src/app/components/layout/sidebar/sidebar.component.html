@@ -1,0 +1,36 @@
+<div class="sidebar-container">
+  <div class="logo-container">
+    <div class="logo">
+      <img src="assets/images/university-logo.png" alt="University Logo">
+    </div>
+    <h2>University</h2>
+  </div>
+  
+  <mat-divider></mat-divider>
+  
+  <div class="menu-section">
+    <mat-nav-list>
+      <a mat-list-item 
+         *ngFor="let item of menuItems" 
+         [routerLink]="item.route" 
+         routerLinkActive="active-link">
+        <mat-icon matListItemIcon>{{item.icon}}</mat-icon>
+        <span matListItemTitle>{{item.name}}</span>
+      </a>
+    </mat-nav-list>
+  </div>
+  
+  <mat-divider></mat-divider>
+  
+  <div class="menu-section support-section">
+    <mat-nav-list>
+      <a mat-list-item 
+         *ngFor="let item of supportItems" 
+         [routerLink]="item.route" 
+         routerLinkActive="active-link">
+        <mat-icon matListItemIcon>{{item.icon}}</mat-icon>
+        <span matListItemTitle>{{item.name}}</span>
+      </a>
+    </mat-nav-list>
+  </div>
+</div>

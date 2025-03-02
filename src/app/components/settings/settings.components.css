@@ -1,0 +1,59 @@
+.settings-container {
+    padding: 16px;
+  }
+  
+  .page-title {
+    margin-bottom: 24px;
+    color: var(--primary-color);
+  }
+  
+  mat-card {
+    padding: 0;
+    border-radius: 8px;
+  }
+  
+  .tab-content {
+    padding: 24px;
+  }
+  
+  .form-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+    gap: 16px;
+  }
+  
+  .form-row mat-form-field {
+    flex: 1;
+    min-width: 250px;
+  }
+  
+  .form-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 24px;
+  }
+  
+  .notification-option {
+    padding: 16px 0;
+  }
+  
+  .notification-description {
+    margin: 8px 0 0 0;
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 14px;
+  }
+  
+  mat-divider {
+    margin: 8px 0;
+  }
+  
+  @media (max-width: 600px) {
+    .form-row {
+      flex-direction: column;
+    }
+    
+    .form-row mat-form-field {
+      width: 100%;
+    }
+  }

@@ -1,0 +1,23 @@
+.main-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.sidenav-container {
+  flex: 1;
+}
+
+.sidenav {
+  width: 250px;
+  background-color: #f8f5fe;
+  border-right: none;
+}
+
+.content-container {
+  background-color: #fafafa;
+}
+
+.content {
+  padding: 20px;
+}

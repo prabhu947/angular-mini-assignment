@@ -1,0 +1,62 @@
+<mat-toolbar class="header-toolbar">
+  <div class="left-section">
+    <button mat-icon-button (click)="toggleMenu()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <h1 class="header-title">Student Dashboard</h1>
+  </div>
+  
+  <div class="search-container">
+    <mat-form-field appearance="outline" class="search-field">
+      <mat-label>Search</mat-label>
+      <input matInput type="text" placeholder="Search...">
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+  </div>
+  
+  <div class="user-controls">
+    <button mat-icon-button [matMenuTriggerFor]="notificationMenu" class="notification-btn">
+      <mat-icon [matBadge]="3" matBadgeColor="warn">notifications</mat-icon>
+    </button>
+    <mat-menu #notificationMenu="matMenu" class="notification-menu">
+      <div class="notification-header">
+        <h3>Notifications</h3>
+      </div>
+      <button mat-menu-item>
+        <mat-icon>book</mat-icon>
+        <span>Book return reminder: 2 days left</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>warning</mat-icon>
+        <span>Overdue charges pending</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>event</mat-icon>
+        <span>Upcoming event: Library Workshop</span>
+      </button>
+    </mat-menu>
+    
+    <button mat-icon-button class="user-profile" [matMenuTriggerFor]="userMenu">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    <mat-menu #userMenu="matMenu">
+      <div class="user-menu-header">
+        <h3>John Doe</h3>
+        <p>Student ID: ST12345</p>
+      </div>
+      <mat-divider></mat-divider>
+      <button mat-menu-item>
+        <mat-icon>person</mat-icon>
+        <span>My Profile</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>settings</mat-icon>
+        <span>Settings</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>exit_to_app</mat-icon>
+        <span>Logout</span>
+      </button>
+    </mat-menu>
+  </div>
+</mat-toolbar>

@@ -1,0 +1,46 @@
+<mat-card appHighlight [defaultColor]="'#ffffff'" [appHighlight]="'#f8f5fe'" class="book-card">
+    <mat-card-header>
+      <div mat-card-avatar class="book-avatar" *ngIf="book.coverImage">
+        <img [src]="book.coverImage" [alt]="book.title">
+      </div>
+      <mat-card-title>{{ book.title }}</mat-card-title>
+      <mat-card-subtitle>By {{ book.author }}</mat-card-subtitle>
+    </mat-card-header>
+    
+    <mat-card-content>
+      <div class="book-status">
+        <ng-container *ngIf="book.status | statusBadge as badge">
+          <mat-chip [color]="badge.color" selected>
+            <mat-icon *ngIf="badge.icon">{{ badge.icon }}</mat-icon>
+            {{ badge.text }}
+          </mat-chip>
+        </ng-container>
+      </div>
+      
+      <div class="book-details">
+        <p *ngIf="book.category" class="book-category">
+          <mat-icon>category</mat-icon>
+          <span>{{ book.category }}</span>
+        </p>
+        
+        <p *ngIf="book.dueDate" class="book-due-date">
+          <mat-icon>event</mat-icon>
+          <span>Due: {{ book.dueDate | timeAgo }}</span>
+        </p>
+        
+        <p *ngIf="book.rating" class="book-rating">
+          <mat-icon>star</mat-icon>
+          <span>{{ book.rating }} / 5</span>
+        </p>
+      </div>
+    </mat-card-content>
+    
+    <mat-card-actions>
+      <ng-container *ngFor="let action of getActions()">
+        <button mat-button (click)="onActionClick(action.action)">
+          <mat-icon>{{ action.icon }}</mat-icon>
+          {{ action.label }}
+        </button>
+      </ng-container>
+    </mat-card-actions>
+  </mat-card>

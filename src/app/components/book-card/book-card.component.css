@@ -1,0 +1,62 @@
+.book-card {
+    margin-bottom: 16px;
+    border-radius: 8px;
+  }
+  
+  .book-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .book-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .book-status {
+    margin: 12px 0;
+  }
+  
+  .book-details {
+    margin-top: 12px;
+  }
+  
+  .book-details p {
+    display: flex;
+    align-items: center;
+    margin: 8px 0;
+    font-size: 14px;
+  }
+  
+  .book-details mat-icon {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+  }
+  
+  .book-category, .book-due-date {
+    color: rgba(0, 0, 0, 0.6);
+  }
+  
+  .book-rating {
+    font-weight: 500;
+  }
+  
+  mat-card-actions {
+    padding: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+  
+  mat-card-actions button {
+    margin-right: 8px;
+    margin-bottom: 8px;
+  }

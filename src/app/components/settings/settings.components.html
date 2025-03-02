@@ -1,0 +1,250 @@
+<div class="settings-container">
+    <h1 class="page-title">Settings</h1>
+    
+    <mat-card>
+      <mat-tab-group animationDuration="0ms">
+        <mat-tab label="Profile">
+          <div class="tab-content">
+            <form [formGroup]="profileForm" (ngSubmit)="saveProfileSettings()">
+              <div class="form-row">
+                <mat-form-field appearance="outline">
+                  <mat-label>First Name</mat-label>
+                  <input matInput formControlName="firstName">
+                  <mat-error *ngIf="hasError(profileForm, 'firstName', 'required')">
+                    First name is required
+                  </mat-error>
+                </mat-form-field>
+                
+                <mat-form-field appearance="outline">
+                  <mat-label>Last Name</mat-label>
+                  <input matInput formControlName="lastName">
+                  <mat-error *ngIf="hasError(profileForm, 'lastName', 'required')">
+                    Last name is required
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              
+              <div class="form-row">
+                <mat-form-field appearance="outline">
+                  <mat-label>Email</mat-label>
+                  <input matInput formControlName="email" type="email">
+                  <mat-error *ngIf="hasError(profileForm, 'email', 'required')">
+                    Email is required
+                  </mat-error>
+                  <mat-error *ngIf="hasError(profileForm, 'email', 'email')">
+                    Please enter a valid email address
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              
+              <div class="form-row">
+                <mat-form-field appearance="outline">
+                  <mat-label>Phone</mat-label>
+                  <input matInput formControlName="phone" placeholder="555-123-4567">
+                  <mat-error *ngIf="hasError(profileForm, 'phone', 'pattern')">
+                    Please enter a valid phone number (format: 555-123-4567)
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              
+              <div class="form-row">
+                <mat-form-field appearance="outline">
+                  <mat-label>Language</mat-label>
+                  <mat-select formControlName="language">
+                    <mat-option *ngFor="let lang of languages" [value]="lang.value">
+                      {{lang.name}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                
+                <mat-form-field appearance="outline">
+                  <mat-label>Theme</mat-label>
+                  <mat-select formControlName="theme">
+                    <mat-option *ngFor="let theme of themes" [value]="theme.value">
+                      {{theme.name}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              
+              <div class="form-actions">
+                <button mat-raised-button color="primary" type="submit">
+                  Save Profile Settings
+                </button>
+              </div>
+            </form>
+          </div>
+        </mat-tab>
+        
+        <mat-tab label="Notifications">
+          <div class="tab-content">
+            <form [formGroup]="notificationForm" (ngSubmit)="saveNotificationSettings()">
+              <div class="notification-option">
+                <mat-slide-toggle formControlName="emailNotifications">
+                  Email Notifications
+                </mat-slide-toggle>
+                <p class="notification-description">
+                  Receive email notifications about book due dates, renewals, and new arrivals.
+                </p>
+              </div>
+              
+              <mat-divider></mat-divider>
+              
+              <div class="notification-option">
+                <mat-slide-toggle formControlName="pushNotifications">
+                  Push Notifications
+                </mat-slide-toggle>
+                <p class="notification-description">
+                  Receive push notifications on your device.
+                </p>
+              </div>
+              
+              <mat-divider></mat-divider>
+              
+              <div class="notification-option">
+                <mat-slide-toggle formControlName="smsNotifications">
+                  SMS Notifications
+                </mat-slide-toggle>
+                <p class="notification-description">
+                  Receive text messages for important updates.
+                </p>
+              </div>
+              
+              <mat-divider></mat-divider>
+              
+              <div class="notification-option">
+                <mat-slide-toggle formControlName="weeklyDigest">
+                  Weekly Digest
+                </mat-slide-toggle>
+                <p class="notification-description">
+                  Receive a weekly summary of library activities.
+                </p>
+              </div>
+              
+              <mat-divider></mat-divider>
+              
+              <div class="notification-option">
+                <mat-slide-toggle formControlName="marketingEmails">
+                  Marketing Emails
+                </mat-slide-toggle>
+                <p class="notification-description">
+                  Receive promotional emails about new services and events.
+                </p>
+              </div>
+              
+              <div class="form-actions">
+                <button mat-raised-button color="primary" type="submit">
+                  Save Notification Settings
+                </button>
+              </div>
+            </form>
+          </div>
+        </mat-tab>
+        
+        <mat-tab label="Security">
+          <div class="tab-content">
+            <form [formGroup]="securityForm" (ngSubmit)="saveSecuritySettings()">
+              <div class="form-row">
+                <mat-form-field appearance="outline">
+                  <mat-label>Old Password</mat-label>
+                  <input matInput formControlName="oldPassword" type="password">
+                  <mat-error *ngIf="hasError(securityForm, 'oldPassword', 'required')">
+                    Old password is required
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              
+              <div class="form-row">
+                <mat-form-field appearance="outline">
+                  <mat-label>New Password</mat-label>
+                  <input matInput formControlName="newPassword" type="password">
+                  <mat-hint>Password must be at least 8 characters</mat-hint>
+                  <mat-error *ngIf="hasError(securityForm, 'newPassword', 'required')">
+                    New password is required
+                  </mat-error>
+                  <mat-error *ngIf="hasError(securityForm, 'newPassword', 'minlength')">
+                    Password must be at least 8 characters
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              
+              <div class="form-row">
+                <mat-form-field appearance="outline">
+                  <mat-label>Confirm Password</mat-label>
+                  <input matInput formControlName="confirmPassword" type="password">
+                  <mat-error *ngIf="hasError(securityForm, 'confirmPassword', 'required')">
+                    Please confirm your password
+                  </mat-error>
+                  <mat-error *ngIf="hasError(securityForm, 'confirmPassword', 'passwordMismatch')">
+                    Passwords do not match
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              
+              <mat-divider></mat-divider>
+              
+              <h3>Two-Factor Authentication</h3>
+              
+              <div class="notification-option">
+                <mat-slide-toggle formControlName="twoFactorAuth">
+                  Enable Two-Factor Authentication
+                </mat-slide-toggle>
+                <p class="notification-description">
+                  Add an extra layer of security to your account.
+                </p>
+              </div>
+              
+              <div class="form-actions">
+                <button mat-raised-button color="primary" type="submit">
+                  Save Security Settings
+                </button>
+              </div>
+            </form>
+          </div>
+        </mat-tab>
+        
+        <mat-tab label="Privacy">
+          <div class="tab-content">
+            <form [formGroup]="privacyForm" (ngSubmit)="savePrivacySettings()">
+              <div class="notification-option">
+                <mat-slide-toggle formControlName="shareReadingActivity">
+                  Share Reading Activity
+                </mat-slide-toggle>
+                <p class="notification-description">
+                  Allow others to see what books you're reading.
+                </p>
+              </div>
+              
+              <mat-divider></mat-divider>
+              
+              <div class="notification-option">
+                <mat-slide-toggle formControlName="showProfile">
+                  Public Profile
+                </mat-slide-toggle>
+                <p class="notification-description">
+                  Make your profile visible to other library users.
+                </p>
+              </div>
+              
+              <mat-divider></mat-divider>
+              
+              <div class="notification-option">
+                <mat-slide-toggle formControlName="allowDataCollection">
+                  Allow Data Collection
+                </mat-slide-toggle>
+                <p class="notification-description">
+                  Help improve the library experience by sharing anonymous usage data.
+                </p>
+              </div>
+              
+              <div class="form-actions">
+                <button mat-raised-button color="primary" type="submit">
+                  Save Privacy Settings
+                </button>
+              </div>
+            </form>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </mat-card>
+  </div>

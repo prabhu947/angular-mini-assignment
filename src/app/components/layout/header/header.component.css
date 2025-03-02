@@ -1,0 +1,55 @@
+.header-toolbar {
+  background-color: white;
+  color: rgba(0, 0, 0, 0.87);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 16px;
+}
+
+.left-section {
+  display: flex;
+  align-items: center;
+}
+
+.header-title {
+  margin-left: 16px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.search-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  max-width: 600px;
+}
+
+.search-field {
+  width: 100%;
+}
+
+.user-controls {
+  display: flex;
+  align-items: center;
+}
+
+.notification-btn {
+  margin-right: 8px;
+}
+
+.notification-header,
+.user-menu-header {
+  padding: 16px 16px 0 16px;
+  color: #673ab7;
+}
+
+.user-menu-header p {
+  margin: 4px 0 12px;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+::ng-deep .notification-menu {
+  max-width: 300px;
+}
