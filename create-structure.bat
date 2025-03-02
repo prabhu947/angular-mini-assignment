@@ -1,125 +1,107 @@
 @echo off
-echo Creating Angular mini-assignment directory structure...
+echo Creating Angular project directory structure...
 
-mkdir mini-assignment
-cd mini-assignment
+:: Create main directories
+mkdir src\app
+mkdir src\app\components
+mkdir src\app\directives
+mkdir src\app\pipes
+mkdir src\app\services
 
-mkdir src
-cd src
-mkdir app assets styles
+:: Create component directories
+mkdir src\app\components\book-card
+mkdir src\app\components\books
+mkdir src\app\components\calendar
+mkdir src\app\components\home
+mkdir src\app\components\task-dialog
 
-cd app
-mkdir components models services shared
+mkdir src\app\components\layout
+mkdir src\app\components\layout\header
+mkdir src\app\components\layout\main-layout
+mkdir src\app\components\layout\sidebar
 
-cd shared
-mkdir directives pipes
-cd ..
+mkdir src\app\components\settings
+mkdir src\app\components\students
 
-cd components
-mkdir books calendar home layout settings students
+:: Create root files
+echo. > src\app\app.component.html
+echo. > src\app\app.component.spec.ts
+echo. > src\app\app.component.ts
+echo. > src\app\app.config.server.ts
+echo. > src\app\app.config.ts
+echo. > src\app\app.routes.server.ts
+echo. > src\app\app.routes.ts
 
-cd layout
-mkdir main-layout
-cd main-layout
-echo. > main-layout.component.ts
-echo. > main-layout.component.html
-echo. > main-layout.component.css
-cd ..
-mkdir header
-cd header
-echo. > header.component.ts
-echo. > header.component.html
-echo. > header.component.css
-cd ..
-mkdir sidebar
-cd sidebar
-echo. > sidebar.component.ts
-echo. > sidebar.component.html
-echo. > sidebar.component.css
-cd ..
-cd ..
+:: Create component files
+echo. > src\app\components\book-card\book-card.component.css
+echo. > src\app\components\book-card\book-card.component.html
+echo. > src\app\components\book-card\book-card.component.ts
 
-cd books
-echo. > books.component.ts
-echo. > books.component.html
-echo. > books.component.css
-mkdir book-detail
-cd book-detail
-echo. > book-detail.component.ts
-echo. > book-detail.component.html
-echo. > book-detail.component.css
-cd ..
-mkdir book-form
-cd book-form
-echo. > book-form.component.ts
-echo. > book-form.component.html
-echo. > book-form.component.css
-cd ..
-cd ..
+echo. > src\app\components\books\books.component.css
+echo. > src\app\components\books\books.component.html
+echo. > src\app\components\books\books.component.ts
 
-cd calendar
-echo. > calendar.component.ts
-echo. > calendar.component.html
-echo. > calendar.component.css
-cd ..
+echo. > src\app\components\calendar\calendar.component.css
+echo. > src\app\components\calendar\calendar.component.html
+echo. > src\app\components\calendar\calendar.component.spec.ts
+echo. > src\app\components\calendar\calendar.component.ts
 
-cd home
-echo. > home.component.ts
-echo. > home.component.html
-echo. > home.component.css
-cd ..
+echo. > src\app\components\home\home.component.css
+echo. > src\app\components\home\home.component.html
+echo. > src\app\components\home\home.component.ts
 
-cd settings
-echo. > settings.component.ts
-echo. > settings.component.html
-echo. > settings.component.css
-cd ..
+echo. > src\app\components\layout\header\header.component.css
+echo. > src\app\components\layout\header\header.component.html
+echo. > src\app\components\layout\header\header.component.ts
 
-cd students
-echo. > students.component.ts
-echo. > students.component.html
-echo. > students.component.css
-cd ..
+echo. > src\app\components\layout\main-layout\main-layout.component.css
+echo. > src\app\components\layout\main-layout\main-layout.component.html
+echo. > src\app\components\layout\main-layout\main-layout.component.ts
 
-cd ..
+echo. > src\app\components\layout\sidebar\sidebar.component.css
+echo. > src\app\components\layout\sidebar\sidebar.component.html
+echo. > src\app\components\layout\sidebar\sidebar.component.ts
 
-cd models
-echo. > book.ts
-echo. > student.ts
-echo. > event.ts
-echo. > user.ts
-cd ..
+echo. > src\app\components\settings\settings.components.css
+echo. > src\app\components\settings\settings.components.html
+echo. > src\app\components\settings\settings.components.ts
 
-cd services
-echo. > book.service.ts
-echo. > student.service.ts
-echo. > event.service.ts
-echo. > auth.service.ts
-cd ..
+echo. > src\app\components\students\students.components.css
+echo. > src\app\components\students\students.components.html
+echo. > src\app\components\students\students.components.ts
 
-cd shared
-cd directives
-echo. > highlight.directive.ts
-cd ..
-cd pipes
-echo. > time-ago.pipe.ts
-echo. > search-filter.pipe.ts
-cd ..
-cd ..
+echo. > src\app\components\task-dialog\task-dialog.component.css
+echo. > src\app\components\task-dialog\task-dialog.component.html
+echo. > src\app\components\task-dialog\task-dialog.component.spec.ts
+echo. > src\app\components\task-dialog\task-dialog.component.ts
 
-echo. > app.component.ts
-echo. > app.component.html
-echo. > app.component.css
-echo. > app.routes.ts
-echo. > app.config.ts
+:: Create directives
+echo. > src\app\directives\highlight.directive.ts
 
-cd ..\..\
+:: Create pipes
+echo. > src\app\pipes\search-filter.pipe.ts
+echo. > src\app\pipes\sort-tasks.pipe.ts
+echo. > src\app\pipes\status-badge.pipe.ts
+echo. > src\app\pipes\time-ago.pipe.ts
 
+:: Create services
+echo. > src\app\services\book.service.ts
+
+:: Create other necessary files
+echo. > src\index.html
+echo. > src\main.server.ts
+echo. > src\main.ts
+echo. > src\server.ts
+echo. > src\styles.css
+
+:: Create root project files
+echo. > .editorconfig
+echo. > .gitignore
 echo. > angular.json
 echo. > package.json
+echo. > README.md
+echo. > tsconfig.app.json
 echo. > tsconfig.json
-echo. > db.json
-echo. > .gitignore
+echo. > tsconfig.spec.json
 
 echo Directory structure created successfully!
-pause
