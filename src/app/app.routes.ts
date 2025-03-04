@@ -7,26 +7,25 @@ export const routes: Routes = [
     component: MainLayoutComponent,
     children: [
       { path: '', redirectTo: '/home', pathMatch: 'full' },
-      { 
-        path: 'home',
-        loadComponent: () => import('./components/home/home.component').then(c => c.HomeComponent) 
+      {
+        path: 'stock',
+        loadComponent: () => import('./stock-management/stock-management.component')
+          .then(m => m.StockManagementComponent),
+        title: 'Stock Management'
       },
       {
-        path: 'books',
-        loadComponent: () => import('./components/books/books.component').then(c => c.BooksComponent)
-      },
-      {
-        path: 'calendar',
-        loadComponent: () => import('./components/calendar/calendar.component').then(c => c.CalendarComponent)
-      },
-      {
-        path: 'students',
-        loadComponent: () => import('./components/students/students.components').then(c => c.StudentsComponent)
-      },
-      {
-        path: 'settings',
-        loadComponent: () => import('./components/settings/settings.components').then(c => c.SettingsComponent)
+        path: 'grocery',
+        loadComponent: () => import('./grocery/grocery.component')
+            .then(m => m.GroceryComponent),
+        title: 'Grocery Management'
+    },
+    {
+        path: 'dashboard',
+        loadComponent: () => import('./dashboard/dashboard.component')
+          .then(m => m.DashboardComponent),
+        title: 'Dashboard'
       }
+    
     ]
   },
   { path: '**', redirectTo: '/home' }

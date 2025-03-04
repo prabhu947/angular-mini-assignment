@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
+import { MatDividerModule } from '@angular/material/divider';
 
 @Component({
   selector: 'app-sidebar',
@@ -12,23 +13,25 @@ import { MatIconModule } from '@angular/material/icon';
     RouterLink,
     RouterLinkActive,
     MatListModule,
-    MatIconModule
+    MatIconModule,
+    MatDividerModule
   ],
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent {
   menuItems = [
-    { name: 'Home', icon: 'home', route: '/home' },
-    { name: 'Books', icon: 'library_books', route: '/books' },
-    { name: 'Inbox', icon: 'inbox', route: '/inbox' },
-    { name: 'Students', icon: 'people', route: '/students' },
-    { name: 'Calendar', icon: 'calendar_today', route: '/calendar' },
-    { name: 'Settings', icon: 'settings', route: '/settings' }
+    { name: 'Dashboard', icon: 'dashboard', route: '/dashboard' },
+    { name: 'Stock Management', icon: 'inventory_2', route: '/stock' },
+    { name: 'Shipment Tracking', icon: 'local_shipping', route: '/grocery' },
+    { name: 'Reports & Analytics', icon: 'analytics', route: '/reports' },
+    { name: 'Customer Management', icon: 'people', route: '/customers' },
+    { name: 'Food Safety Blogs', icon: 'article', route: '/blogs' }
   ];
   
   supportItems = [
-    { route: '/support1', icon: 'help', name: 'Support 1' },
-    { route: '/support2', icon: 'contact_support', name: 'Support 2' }
+    { name: 'Add', icon: 'task' },
+    { name: 'My Account', icon: 'account_circle', route: '/account' },
+    { name: 'Help & Support', icon: 'help', route: '/support' }
   ];
 }

@@ -1,0 +1,17 @@
+{
+    "blogs": [
+      {
+        "id": "1",
+        "title": "Understanding Food Safety",
+        "image": "assets/images/food-safety.jpg",
+        "type": "Safety",
+        "descriptiton": "Essential guidelines for maintaining food safety standards in grocery stores...",
+        "publishedDate": "2025-03-04T00:00:00",
+        "blogInfo": {
+          "carouselImage": ["image1.jpg"],
+          "postBy": "John Doe",
+          "desc": "Detailed information about food safety practices..."
+        }
+      }
+    ]
+  }

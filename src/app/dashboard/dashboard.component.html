@@ -1,0 +1,49 @@
+<div class="dashboard-container">
+  <div class="charts-grid">
+    <mat-card class="chart-card order-chart">
+      <mat-card-header>
+        <mat-card-title>Order Statistics</mat-card-title>
+        <mat-card-subtitle>Monthly overview of orders</mat-card-subtitle>
+        <div class="filter-container">
+          <mat-form-field appearance="outline">
+            <mat-label>Filter Orders</mat-label>
+            <mat-select [formControl]="filterControl">
+              <mat-option value="all">All Orders</mat-option>
+              <mat-option value="active">Active Orders</mat-option>
+              <mat-option value="inactive">Inactive Orders</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="chart-container">
+          <canvas id="orderChart"></canvas>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="chart-card task-chart">
+      <mat-card-header>
+        <mat-card-title>Daily Tasks</mat-card-title>
+        <mat-card-subtitle>Task distribution</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="chart-container">
+          <canvas id="taskChart"></canvas>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="chart-card shipment-chart">
+      <mat-card-header>
+        <mat-card-title>Shipment Status</mat-card-title>
+        <mat-card-subtitle>Current distribution</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="chart-container">
+          <canvas id="shipmentChart"></canvas>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
